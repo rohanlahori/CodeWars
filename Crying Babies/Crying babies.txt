@@ -1,4 +1,4 @@
-Author : Naviz Khoja
+Crying Babies.
 
 There are n babies in a hospital room. Some of them are asleep and some of them are awake.
 The babies are represented as an array of n integers a1,a2,.....,a(n) , where a[i] = 1 if the baby is awake and the a[i] = 0 if the baby is asleep.
@@ -8,10 +8,35 @@ More formally , for 1 < i < n , if a[i] = 0 and a[i - 1] = a[i + 1] = 1 the ith 
 
 Your task is to find out the minimum number k such that if you made k pairwise distinct babies asleep i.e change a[i] from 1 to 0 , then no baby would wake up and cry.
 
+INPUT:
 
+The first line contains a integer t (1 <= t <= 100) the number of test cases.
+
+The first line of each testcase contains an integer n (1 <= n <= 1e5) the number of babies in the hospital.
+
+The next line contains n integers , each of them are either 1 (if the baby is awake) or 0 (if the baby is asleep).
+
+The sum of n over all test cases dosen't exceed 1e6.
+
+OUTPUT:
+
+Print a single integer k mentioned above for every test case.
+
+Sample input
+
+3 
 7
 1 0 1 1 0 1 0
+5
+1 1 0 0 0
+3
+1 0 1
 
-ANS : 2
+
+Sample Output:
+
+2
+0
+1
 
 
