@@ -1,0 +1,28 @@
+GTU has it's own set of rules, 
+
+According to one of GTU rule every Engineering Student requires atleast 100 Activity Points satisfying the below given criteria for graduating.
+
+Technical : 1/2 of required points
+Non Technical: 2/5 of required points
+Sports : 1/10 of required points.
+
+You are given points of students in Non Technical,Technical,Sports Events.
+
+Find whether the given student has enough points to graduate or not.
+
+
+Input Format:
+
+The first line contains a single integer T denoting the number of test cases. The description of T test cases follows.
+
+The first and only line of each test case contains X,Y,Z: points of student in Non Technical,Technical and Sports Events.
+
+
+Output Format:
+
+For each test case, print a single line "YES" if the student has enough points for graduating or "NO" otherwise.
+
+
+Constraints:
+1≤T≤10^5
+0≤X,Y,Z≤100

@@ -1,0 +1,33 @@
+You have K candies and you want to eat all of them in at most N minutes. You can eat any number of candies at a particular minute. For each minute you know the happiness you get by eating 1 candy at that minute and the sadness you get by eating 0 candy at that minute. More formally,
+
+If you eat X candies in ith minute where X > 0, you get X*H[i] amount of happiness. H[i] is happiness you get by eating 1 candy at the ith minute.
+If you eat 0 candy in ith minute, you get S[i] sadness.
+You found out that the Happiness factor = Total Happiness - Total Sadness, and you want to maximize the happiness factor by eating candies.
+
+Task
+
+Given values of K, N, and H[i], S[i] for all i, where 1 <= i <= N. Calculate the maximum Happiness factor you can get by eating candies optimally.
+
+
+
+===================
+Input format
+
+
+The first line contains T denoting the number of test cases. T also specifies the number of times you have to run the solve function on a different set of inputs.
+For each test case:
+The first line contains N denoting the number of minutes.
+The second line contains N space-separated value, denoting the elements of H.
+The third line contains N space-separated value, denoting the elements of S.
+The fourth and final line contains K denoting the number of candies.
+==========================
+Output format
+For each test case, print the maximum happiness factor you can achieve, in a new line.
+
+==========
+Const
+t [1,10]
+N [1,1e5]
+H[i],S[i] [1,1e9]
+
+=========================
