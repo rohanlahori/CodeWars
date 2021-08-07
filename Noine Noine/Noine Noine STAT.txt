@@ -1,0 +1,39 @@
+C Noine Noine
+
+You have n cookies in a box numbered from 1 to n. You are planning to eat all of them. Each cookie has a taste value which is represented as an array of n integers, where a[i] is the taste value of the ith cookie. 
+As you are a big fan of the show "Brooklyn 99" you somehow think that if the product of the cookie value of every two adjacent cookies in the box is a multiple of 9 , then you will enjoy eating them very much. Find out if it is possible to arrange the cookies in the way mentioned above.
+
+More Formally , you have to determine if a sequence of n integers can be arranged in such a way that for every i (1 <= i < n) a[i] * a[i + 1] is a multiple of 9.
+
+INPUT : 
+
+The first line contains an integer t , the number of testcases (1 <= t <= 100).
+
+The first line of each testcase contains an integer n(1 <= n <= 1e5) , the number of cookies.
+
+The next line contains n positive integers. (1 <= a[i] <= 1e9);
+
+It is guaranteed that the sum of n over all the test cases doesn't exceed 1e6.
+
+OUTPUT :
+
+Print "YES" if you can arrange the cookies in a way mentioned above,or else print "NO".
+
+SAMPLE INPUT:
+
+3
+4
+9 5 6 18
+3
+1 9 1
+4
+6 7 8 9
+
+SAMPLE OUTPUT:
+
+YES
+YES
+NO
+
+
+

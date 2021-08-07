@@ -49,36 +49,33 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(unordered_map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-// Author Naveez Khoja
+
 bool tc = 1;
 void getans() {
-    int n; cin >> n;
+    string s; cin >> s;
 
-    vi a(n);
+    int n = s.length();
+
+    int ans = 0;
 
     for (int i = 0; i < n; ++i)
     {
-        cin >> a[i];
-    }
-
-    vi inds;
-
-    for (int i = 1; i < n - 1; ++i)
-    {
-        if (!a[i] && a[i - 1] == 1 && a[i + 1] == 1) {
-            inds.push_back(i);
+        if (i && s[i] == s[i - 1]) {
+            ans++;
+            s[i] = '!';
         }
-    }
-    int ct = 0;
-    for (int i = 1; i < inds.size(); ++i)
-    {
-        if (inds[i] - inds[i - 1] == 2) {
-            ct++;
-            i++;
+        else {
+            if (i > 1) {
+                if (s[i] == s[i - 2]) {
+                    ans++;
+                    s[i] = '@';
+                }
+
+            }
         }
     }
 
-    cout << inds.size() - ct << nl;
+    cout << ans << nl;
 }
 
 void stresstest() {
