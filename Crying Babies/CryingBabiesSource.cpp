@@ -1,8 +1,8 @@
-#pragma GCC target ("avx2")
-#pragma GCC optimization ("O3")
-#pragma GCC optimization ("unroll-loops")
-#include"bits/stdc++.h"
+#include <iostream>
+#include <bits/stdc++.h> 
+#include <algorithm>
 using namespace std;
+<<<<<<< HEAD
 const int mod = 1e9 + 7;
 #define ll long long
 #define ld long double
@@ -71,33 +71,46 @@ void getans() {
                     s[i] = '@';
                 }
 
+=======
+#define ll long long 
+#define f(i,x,z) for(ll i=x;i<z;i++)
+
+int main()
+{
+	// freopen("inp.txt","r",stdin);
+	// freopen("out.txt","w",stdout);
+	ios::sync_with_stdio(0);// Input and output clearance
+	cin.tie(0);
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll a[n];    
+        f(i,0,n)
+        {
+            cin>>a[i];
+        }
+        ll cnt=0;
+        f(i,1,n-1)
+        {
+            if(a[i]==0 && a[i-1]==1 && a[i+1]==1)
+            {
+                a[i+1]=0;
+                cnt++;
+>>>>>>> a6842c654e9bd05277f64fe17260a73dc10c421c
             }
         }
+        cout<<cnt<<"\n";
     }
+<<<<<<< HEAD
 
     cout << ans << nl;
 }
 
 void stresstest() {
 
-}
-int main() {
-
-#ifndef ONLINE_JUDGE
-    freopen("Error.txt", "w", stderr);
-#endif
-
-    ios_base::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
-
-    ll T = 1;
-    if (tc) cin >> T;
-    while (T--) {
-        getans();
-    }
-#ifndef ONLINE_JUDGE
-    cerr << "Time : " << 1000 * ((double)clock()) / (double)CLOCKS_PER_SEC << "ms\n";
-#endif
-
-    return 0;
+=======
+>>>>>>> a6842c654e9bd05277f64fe17260a73dc10c421c
 }
