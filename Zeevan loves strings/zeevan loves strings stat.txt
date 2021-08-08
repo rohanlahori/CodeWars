@@ -33,7 +33,7 @@ The first line contains one integer t (1≤t≤1e4) — the number of test cases
 
 Each test case is written on the the separate line containing two integers n and k (3≤n≤1e5,1≤k≤min(2⋅1e9,n⋅(n−1)2).
 
-The sum of values n over all test cases in the test doesn't exceed 1e5.
+The sum of values n over all test cases in the test doesn't exceed 1e6.
 
 OUTPUT :
 
