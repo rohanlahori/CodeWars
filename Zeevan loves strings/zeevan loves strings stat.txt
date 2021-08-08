@@ -1,5 +1,3 @@
-Zeevan's good string.
-
 Zeevan is a big fan of Strings.One day he was bored and started thinking of a set of strings.
 The set of strings is constructed by writing down all the strings in lexographical order, having the length n and containing n - 2 letters 'c' and 2 letters 'd'.
 
