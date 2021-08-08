@@ -1,0 +1,16 @@
+Gandalf the Grey is, loved to line up his soldiers. Overall the army had n1 eleves and n2 dwarfs. Gandalf thought that an arrangement is not beautiful if somewhere in the line there are strictly more that k1 eleves standing successively one after another, or there are strictly more than k2 dwarfs standing successively one after another. Find the number of beautiful arrangements of the soldiers.
+
+Note that all n1+n2 warriors should be present at each arrangement. All eleves are considered indistinguishable among themselves. Similarly, all dwarfs are considered indistinguishable among themselves.
+
+Input
+The only line contains four space-separated integers n1, n2, k1, k2 (1≤n1,n2≤100,1≤k1,k2≤10) which represent how many eleves and dwarfs there are and the largest acceptable number of eleves and dwarfs standing in succession, correspondingly.
+
+Output
+Print the number of beautiful arrangements of the army modulo 100000000 (10^8). That is, print the number of such ways to line up the soldiers, that no more than k1 eleves stand successively, and no more than k2 dwarfs stand successively.
+
+Sample
+In
+2 1 1 10
+
+Out
+1
