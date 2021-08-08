@@ -1,8 +1,8 @@
 Zeevan is a big fan of Strings.One day he was bored and started thinking of a set of strings.
 The set of strings is constructed by writing down all the strings in lexographical order, having the length n and containing n - 2 letters 'c' and 2 letters 'd'.
 
-Recall that the string s of length n is lexicographically less than string t of length n, if there exists such i (1≤i≤n), that s[i]<t[i], and for any j (1≤j<i) s[j]=t[j].
-The lexicographic comparison of strings is implemented by the operator < in modern programming languages.
+String x is lexicographically less than string y, if either x is a prefix of y (and x ≠ y), or there exists such i (1 ≤ i ≤ min(|x|, |y|)), that xi < yi, and for any j (1 ≤ j < i) xj = yj. 
+Here |a| denotes the length of the string a. The lexicographic comparison of strings is implemented by operator < in modern programming languages​​.
 
 For example if (n = 6) the strings are (note that the order matters here)
 
