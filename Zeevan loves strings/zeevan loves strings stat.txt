@@ -1,0 +1,71 @@
+Zeevan's good string.
+
+Zeevan is a big fan of Strings.One day he was bored and started thinking of a set of strings.
+The set of strings is constructed by writing down all the strings in lexographical order, having the length n and containing n - 2 letters 'c' and 2 letters 'd'.
+
+Recall that the string s of length n is lexicographically less than string t of length n, if there exists such i (1≤i≤n), that s[i]<t[i], and for any j (1≤j<i) s[j]=t[j].
+The lexicographic comparison of strings is implemented by the operator < in modern programming languages.
+
+For example if (n = 6) the strings are (note that the order matters here)
+
+1.ccccdd
+2.cccdcd
+3.cccddc
+4.ccdccd
+5.ccdcdc
+6.ccddcc
+7.cdcccd
+8.cdccdc
+9.cdcdcc
+10.cddccc
+11.dccccd
+12.dcccdc
+13.dccdcc
+14.dcdccc
+15.ddcccc
+
+it is easy to show that the set will contain n * (n - 1) / 2 strings.
+
+As zeevan is very bad at calculating strings , he asks you to find the kth string from the set.
+
+
+
+INPUT :
+The first line contains one integer t (1≤t≤1e4) — the number of test cases in the test. Then t test cases follow.
+
+Each test case is written on the the separate line containing two integers n and k (3≤n≤1e5,1≤k≤min(2⋅1e9,n⋅(n−1)2).
+
+The sum of values n over all test cases in the test doesn't exceed 1e5.
+
+OUTPUT :
+
+Output
+For each test case print the k-th string from the set of all described above strings of length n. Strings in the set are sorted lexicographically (alphabetically).
+
+
+
+SAMPLE INPUT :
+
+7
+5 1
+5 2
+5 8
+5 10
+3 1
+3 2
+20 100
+
+SAMPLE OUTPUT :
+
+cccdd
+ccdcd
+dccdc
+ddccc
+cdd
+dcd
+cccccdcccccdcccccccc
+
+
+
+
+ 
