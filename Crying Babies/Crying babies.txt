@@ -1,12 +1,14 @@
 Crying Babies.
 
-There are n babies in a hospital room. Some of them are asleep and some of them are awake.
-The babies are represented as an array of n integers a1,a2,.....,a(n) , where a[i] = 1 if the baby is awake and the a[i] = 0 if the baby is asleep.
+There are n babies in a hospital room. Some of them have a toy with them and some of them don't.
+The babies are represented as an array of n integers a1,a2,.....,a(n) , where a[i] = 1 if the baby is has a toy and the a[i] = 0 if the baby doesn't have a toy.
 
-A baby(which is asleep(a[i] = 0)) wakes up and starts to cry if both the babies adjacent to it are awake. 
-More formally , for 1 < i < n , if a[i] = 0 and a[i - 1] = a[i + 1] = 1 the ith baby wakes up and starts crying.
+A baby(which doesn't have a toy(a[i] = 0)) starts to cry if both the babies adjacent have toys. 
+More formally , for 1 < i < n , if a[i] = 0 and a[i - 1] = a[i + 1] = 1 the ith starts crying.
 
-Your task is to find out the minimum number k such that if you made k pairwise distinct babies asleep i.e change a[i] from 1 to 0 , then no baby would wake up and cry.
+You don't have any more toys left to give to the babies, but you also want to make them stop crying(if they are crying).
+
+Your task is to find out the minimum number k such that if you took away toys from k pairwise distinct babies i.e change a[i] from 1 to 0 , then no baby would cry.
 
 INPUT:
 
@@ -14,7 +16,7 @@ The first line contains a integer t (1 <= t <= 100) the number of test cases.
 
 The first line of each testcase contains an integer n (1 <= n <= 1e5) the number of babies in the hospital.
 
-The next line contains n integers , each of them are either 1 (if the baby is awake) or 0 (if the baby is asleep).
+The next line contains n integers , each of them are either 1 (if the baby has a toy) or 0 (if the baby doesn't have a toy).
 
 The sum of n over all test cases dosen't exceed 1e6.
 
