@@ -64,7 +64,40 @@ int main() {
 
 
 
-PROBLEM B : 
+PROBLEM B: GTU POINTS
+
+For graduating every student need atleast 100 points:
+
+Technical points: (1/2)*100=50 points
+Non-Technical:	(2/5)*100=40 points
+Sports:         (1/10)*100=10 points
+
+So, f the given points satisfy the above criteria print "YES" else "NO". 
+
+Source Code(C++): 
+
+#include <iostream>
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+        if (x >= 40 && y >= 50 && z >= 10)
+        {
+            cout << "YES" << "\n";
+        }
+        else {
+            cout << "NO" << "\n";
+        }
+    }
+}
+
 
 PROBLEM C BROOKLYN 99:
 
