@@ -389,11 +389,9 @@ int main() {
 
 PROBLEM F : LORD OF THE ARMY:
 
-The problem is solved lazy dynamics. Let z[n1] [n2] [2] - a number of ways to place troops in a legion of Caesar. Indicate the following parameters, n1 – is a number of footmen, n2 – is a number of horseman, the third parameter indicates what troops put Caesar in the beginning of the line. If Caesar wants to put the footmen, the state dynamics of the z [n1] [n2] [0] go to the state
+The problem is solved by lazy dynamics. Let z[n1] [n2] [2] - a number of ways to place troops in a legion of gandalf . Indicate the following parameters, n1 – is a number of footmen, n2 – is a number of horsemen, the third parameter indicates what troops put gandalf in the beginning of the line. If gandalf wants to put the footmen, the state dynamics of the z [n1] [n2] [0] go to the state
 
-z [n1] [n2 - i] [0], where 0 <= I <= min (k2, n2) . If Caesar wants to put the riders, the state dynamics of the z [n1] [n2] [1] go to the state z [n1] [n2 - i] [1], where 0 <= I <= min (k2, n2) .
-
-story change kar dena.. caesar ki jagah gandalf and rider ki jagah elves etc.. aisa sab dekh lena ek baar quesiton.
+z [n1] [n2 - i] [0], where 0 <= I <= min (k2, n2) . If gandalf wants to put the elves, the state dynamics of the z [n1] [n2] [1] go to the state z [n1] [n2 - i] [1], where 0 <= I <= min (k2, n2) .
 
 
 Source Code(C++):
