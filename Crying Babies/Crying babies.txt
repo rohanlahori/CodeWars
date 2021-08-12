@@ -4,7 +4,7 @@ There are n babies in a hospital room. Some of them have a toy with them and som
 The babies are represented as an array of n integers a1,a2,.....,a(n) , where a[i] = 1 if the baby is has a toy and the a[i] = 0 if the baby doesn't have a toy.
 
 A baby(which doesn't have a toy(a[i] = 0)) starts to cry if both the babies adjacent have toys. 
-More formally , for 1 < i < n , if a[i] = 0 and a[i - 1] = a[i + 1] = 1 the ith starts crying.
+More formally , for 1 < i < n , if a[i] = 0 and a[i - 1] = a[i + 1] = 1 the ith baby starts crying.
 
 You don't have any more toys left to give to the babies, but you also want to make them stop crying(if they are crying).
 

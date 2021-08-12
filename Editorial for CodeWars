@@ -1,0 +1,216 @@
+
+EDITORIAL FOR CODEWARS 2021:
+
+Problem A CRYING BABIES :
+
+The first observation is that we are interested only in patterns of kind "101". All other patterns don't make sense at all.
+
+So, let's build a greedy approach. We iterate over the array , if for a certain i (i < i < n) if we find a[i] = 0 and a[i - 1] = a[i + 1] = 1 , 
+then it would make more sense to take the toy away from the right baby(making a[i + 1] = 1) as it can benifit us in the future.
+
+The easiest example is "1101011". Suppose now we are at the position 3 ,
+if we would make a[2] = 0 then we would also have to make a[4] or a[6] equal to zero as the 5th baby here is also crying so instead we will do better if we will set a4:=0,
+this way both the 3rd and the 5th baby stop crying.
+
+
+CODE : (C++)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void getans() {
+    int n; cin >> n;
+
+    vector<int> a(n);
+
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> a[i];
+    }
+
+    vector<int> inds;
+
+    for (int i = 1; i < n - 1; ++i)
+    {
+        if (!a[i] && a[i - 1] == 1 && a[i + 1] == 1) {
+            inds.push_back(i);
+        }
+    }
+
+    int ct = 0;
+    for (int i = 1; i < inds.size(); ++i)
+    {
+        if (inds[i] - inds[i - 1] == 2) {
+            ct++;
+            i++;
+        }
+    }
+
+    cout << inds.size() - ct << "\n";
+}
+int main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    int T:
+    cin >> T;
+    while (T--) {
+        getans();
+    }
+
+    return 0;
+}
+
+
+
+PROBLEM B : 
+
+PROBLEM C BROOKLYN 99:
+
+The key observation here was we can only get a product of two numbers to be a multiple of 9 if one of them is a multiple of nine or both of them are multiples of 3. 
+So we just count the number of elements which are divisible by 9(lets say the count of the elements is ct9) , 
+and the elements which are divisible by 3(lets say the number of elements is ct3). 
+Now all the elements which are divisible by 3 have to be lined up together to get product of each adjacent element to be a multiple of 9. 
+Now after we have lined up the elements divisible by 3 , we need to place n - ct3 elements still. 
+For that we will have to place the remaining elements in the order (no. divsible by 9 , no .not divisible by 9 , no . divisible by 9 ,.......) and so on. 
+But if ct3 = 0 , then we can place the numbers in the manner (no. not divsible by 9 , no. divisible by 9 , no. not divisible by 9 ,.......).
+
+
+CODE (C++) :
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void getans() {
+    int n; cin >> n;
+
+    vector<long long> a(n);
+
+    int ct9 = 0, ct3 = 0;
+
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> a[i];
+
+        if (a[i] % 9 == 0) ct9++;
+
+        else if (a[i] % 3 == 0) ct3++;
+    }
+
+    n -= ct3;
+
+    if (ct3 == 0) {
+        cout << (ct9 >= (n / 2) ? "YES" : "NO") << "\n";
+        return;
+    }
+
+    else
+        cout << (ct9 >= ((n % 2) ? (n / 2) + 1 : (n / 2)) ? "YES" : "NO") << "\n";
+}
+
+int main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    int t = 1;
+    cin >> t;
+
+    while (t--)
+        getans();
+
+    return 0;
+}
+
+
+PROBLEM D : PRETTY STRINGS:
+
+
+The key observation here is that the position of first d stays at -
+	1 - for 1 time , k = 1
+	2 - for 2 times, k = 2, 3
+	3 - for 3 times , k = 4, 5, 6
+	4 - for 4 times , k = 7, 8, 9, 10
+
+	It can be solved by using the formula for series 
+	1 + 2 + 3 + 4...n = n * (n + 1) / 2
+	to find which block does the k belong to.
+
+This can be done by solving the quadratic equation.
+
+	k = n * (n + 1) / 2;
+
+	2*k = n^2 + n;
+
+	n^2 + n - 2*k = 0;
+
+	a = 1 , b = 1 , c = 2 * k;
+
+	pos1d = (-1 - sqrt(1 * 1 - (4 * 2 * k)) / 2) / 2;
+
+Similarly, the position of second 'd' can be traced out if we find the position of first d'. for every block(i.e 1, 2, 3, 4.....),
+second 'd' starts from 0 and goes to 1 less than the position of first 'd'.
+
+
+CODE C++: 
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+void getans() {
+    ll n, k; cin >> n >> k;
+
+    ll pos1;
+
+    long double D = sqrt(1 + 4 * 2 * k);
+
+    double ans = ((-1 + D) / 2);
+
+    pos1 = (int) ans;
+
+    if (pos1 - ans < 0) {
+        pos1++;
+    }
+
+    ll pos = pos1;
+
+    pos1 = (n - (pos1));
+
+    ll pos2 = abs(k - (pos * (pos + 1) / 2));
+
+    pos2 = pos1 + pos2 + 1;
+
+    for (int i = 1; i < n + 1; ++i) {
+
+        if (i == pos1 || i == pos2) {
+            cout << 'd';
+            continue;
+        }
+        cout << 'c';
+
+    }
+
+    cout << "\n";
+}
+
+int main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    int t; cin >> t;
+
+    while (t--) {
+        getans();
+    }
+
+    return 0;
+}
+
+PROBLEM E : CANDY SCHEDULING:
+
+
+PROBLEM F : LORD OF THE ARMY:
