@@ -212,5 +212,249 @@ int main() {
 
 PROBLEM E : CANDY SCHEDULING:
 
+Let's try to solve the problem when K <= 10^5. Then will see how this solution can be used for bigger K too. We will refer Happiness factor as HF from now on.
+
+If you eat candy in ith minute for the first time then you increase HF by S[i] + H[i]. Because, before eating the first candy total number of candy eaten in ith minute is 0, so the contribution of ith minute to HF was -S[i] but after eating the first candy the contribution became H[i], i.e. increased by S[i]+ H[i].
+If you eat candy in ith minute and this is not your first candy in ith minute then your HF will just be increased by H[i]. This is easy to notice. 
+So, we will sort the minutes in descending order by the profit they gave us. We will eat the candy in the minute which gives us the maximum profit. After that we have to change the profit of the minute i.e. If eat the candy for the first time in some minute we need to decrease the profit by S[i]. Why? Read the above statement again.
+
+Thus, we will keep picking the minute greedily for each candy, and to update the profit values we can use the STL set of Priority Queue Both will work in (NlogN) time.
+
+Now, when K <= 10^9 we can observe that after we pick N candies with the above strategy, the minute with maximum profit will not change any further because after N iteration all the minutes would have been used once if they were optimal. 
+
+So,
+
+If K<= N Pick the minutes greedily
+
+Else pick first N minutes greedily than the minute with maximum profit will be used for all further candies.
+
+You can calculate the answer by storing the frequency of candies eaten for all minutes.
+
+Total time complexity will be :- O(NlogN).
+
+
+Source Code(C++):
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+#define ld long double
+#define vll vector<ll>
+#define vi vector<int>
+#define vb vector<bool>
+#define pi pair<int,int>
+#define pll pair<ll,ll>
+#define vp vector<pi>
+#define vpll vector<pll>
+#define pb push_back
+#define mp make_pair
+#define mt make_tuple
+#define F first
+#define S second
+#define For(i,a,b) for(ll i=a;i<b;i++)
+#define debug2(x,y) cout << "\033[" << 31 << "m" <<"Debug "<<#x<<" -> "<< x<<" | "<<#y<<" -> "<<y << "\033[" << 39 << "m"<<endl;
+#define debug(x) cout << "\033[" << 31 << "m" <<"Debug "<<#x<<" -> "<< x << "\033[" << 39 << "m"<<endl;
+#define all(x) x.begin(),x.end()
+#define rall(x) x.rbegin(), x.rend()
+#define mint map<int,int>
+#define mall map<ll,ll>
+#define ciN cin
+#define gu(a,s) get<a>(s)
+#define tin tuple<ll,ll,ll>
+#define ter(x,y,z) ((x)?y:z)
+
+/////////////
+const ll maxn = 1e3 + 3;
+const ll nax = 1e3 + 2;
+const ll max_val = 5e4 + 10;
+const ll mod = 1e9 + 7;
+const ll bits = 18;
+ll caseNumber = 1;
+#define endl "\n"
+/////////////////////////////////////////////////////////////////
+
+
+void solve() {
+	ll n, k; cin >> n;
+	assert((n >= 1 && n <= 1e5));
+	vll h(n), s(n);
+	ll ans = 0;
+	for (int i = 0; i < n; i++) {
+		cin >> h[i];
+		assert((h[i] >= 1 && h[i] <= 1e9));
+	}
+	for (int j = 0; j < n; j++) {
+		cin >> s[j], ans -= s[j];
+		assert((s[j] >= 1 && s[j] <= 1e9));
+	}
+	set<pair<ll, ll>>profit;
+	vb used(n, 0);
+	cin >> k;
+	assert((k > 0 && k <= 1e9));
+
+	for (int i = 0; i < n; i++) {
+		profit.insert(mp(-1LL * (s[i] + h[i]), i));
+	}
+	while (k > 0) {
+		k--;
+		auto it = profit.begin();
+		pll curr = *it;
+		ans += (-1LL * curr.F);
+		if (used[curr.S]) {
+			// do nothing
+			break;
+		}
+		else {
+
+			used[curr.S] = 1;
+			profit.erase(it);
+			curr.F += s[curr.S];
+			profit.insert(curr);
+		}
+	}
+	auto it = profit.begin();
+	pll curr = *it;
+	ans += (k) * (-1LL * curr.F);
+	cout << ans << endl;
+
+}
+
+
+
+bool TestCase1 = 1;
+bool isGoogles = 0;
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////
+
+int main() {
+
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	ll t;
+	t = 1;
+
+
+
+	if (TestCase1) {
+		cin >> t;
+	}
+	assert((t > 0 && t < 11));
+	while (t--) {
+		solve();
+	}
+	return 0;
+}
 
 PROBLEM F : LORD OF THE ARMY:
+
+The problem is solved lazy dynamics. Let z[n1] [n2] [2] - a number of ways to place troops in a legion of Caesar. Indicate the following parameters, n1 – is a number of footmen, n2 – is a number of horseman, the third parameter indicates what troops put Caesar in the beginning of the line. If Caesar wants to put the footmen, the state dynamics of the z [n1] [n2] [0] go to the state
+
+z [n1] [n2 - i] [0], where 0 <= I <= min (k2, n2) . If Caesar wants to put the riders, the state dynamics of the z [n1] [n2] [1] go to the state z [n1] [n2 - i] [1], where 0 <= I <= min (k2, n2) .
+
+story change kar dena.. caesar ki jagah gandalf and rider ki jagah elves etc.. aisa sab dekh lena ek baar quesiton.
+
+
+Source Code(C++):
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+#define vll vector<ll>
+#define vi vector<int>
+#define vb vector<bool>
+#define pi pair<int,int>
+#define pll pair<ll,ll>
+#define vp vector<pi>
+#define vpll vector<pll>
+#define pb push_back
+#define mp make_pair
+#define mt make_tuple
+#define F first
+#define S second
+#define For(i,a,b) for(ll i=a;i<b;i++)
+#define endl "\n"
+#define debug2(x,y) cout<<"This side ----> "<<#x<<" -> "<<x<<" | "<<#y<<" -> "<<y<<endl;
+#define debug(x) cout<<"This side    ----> "<<#x<<" -> "<<x<<endl
+#define all(x) x.begin(),x.end()
+#define rall(x) x.rbegin(), x.rend()
+#define mint map<int,int>
+#define mall map<ll,ll>
+#define ciN cin
+#define g(a,s) get<a>(s)
+#define tin tuple<ll,ll,ll>
+#define ter(x,y,z) ((x)?y:z)
+#define PI 3.14159265
+bool isGoogles = 0;
+const ll maxn = 1e5 + 10;
+const ll max_val = 2e5 + 10;
+const ll mod = 100000000;
+const ll bits = 10;
+ll caseNumber = 1;
+////////////////////////////////////////////////////////////////
+/*
+*/
+ll n1, n2, k1, k2;
+ll dp[101][101][11][11];
+ll work(ll hor, ll men, ll canhor, ll canmen) {
+	if (dp[hor][men][canhor][canmen] != -1) {
+		return dp[hor][men][canhor][canmen];
+	}
+	ll tot = hor + men;
+	if (tot == 0)return 1;
+	ll ans = 0LL;
+	if (hor > 0 && canhor > 0) {
+		ans += work(hor - 1, men, canhor - 1, k2);
+		ans %= mod;
+	}
+	if (men > 0 && canmen > 0) {
+		ans += work(hor, men - 1, k1, canmen - 1);
+		ans %= mod;
+	}
+	ans %= mod;
+	return dp[hor][men][canhor][canmen] = ans;
+}
+void jabru() {
+	for (int i = 0; i < 101; i++)
+		for (int j = 0; j < 101; j++)
+			for (int k = 0; k < 11; k++)
+				for (int l = 0; l < 11; l++)
+					dp[i][j][k][l] = -1;
+	cin >> n1 >> n2 >> k1 >> k2;
+	work(n1, n2, k1, k2);
+	cout << dp[n1][n2][k1][k2] << endl;
+
+
+
+}
+bool TestCase = 0;
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	ll t;
+	t = 1;
+	if (TestCase) {
+		cin >> t;
+	}
+	while (t--) {
+		if (isGoogles) {cout << "Case #" << caseNumber << ": ";} caseNumber++;
+		jabru();
+	}
+	return 0;
+}
